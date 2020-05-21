@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+      .checked {color: orange;} /* Selected stars */
+
+      .header div{
+        cursor: pointer;
+        padding: 20px;
+        background-color: lightblue;
+        border: 1px solid white;
+        color: white;
+        text-align: center;
+      }
+
+      body{
+        padding: 0;
+      }
+
+      
+
+      .container > div {
+        margin: 0;
+        margin-top:25px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid lightblue;
+      }
+
+      .login-error{
+        color: white;
+        display:none;
+        text-align: center;
+        background-color:rgba(255, 0, 0, 0.5);
+        line-height: 50px;
+        height: 50px;
+      }
+
+      .review{
+        border: 0.5px solid lightblue;
+        box-shadow: 2px 2px lightblue;
+        margin-bottom:4px;
+        padding: 15px;
+      }
+
+
+
+      /* div {
+        border:1px solid black;
+      } */
+    </style>
+  </head>
+  <body>
+
+      <div class="row header">
+
+          <div class="col-lg-4 col-sm-6" onclick="window.location='{{ url_for('index' ) }}';">
+             Index
+          </div>
+
+          <div class="col-lg-4 col-sm-6" onclick="window.location='{{ url_for('book_search') }}';">
+            Book Search
+          </div>
+        <!-- Check if the user is logged in or not -->
+        {% if session['LOGGED'] %}
+            <div class="col-lg-4 col-sm-6" onclick="window.location='{{ url_for('logout') }}';">
+              Logout
+            </div>
+        {% else %}
+            <div class="col-lg-4 col-sm-6" onclick="window.location='{{ url_for('login_page') }}';">
+              Login/Register
+            </div>
+        {% endif %}
+
+
+      </div>
+
+    <div class="container">
+      {% block body %}
+      {% endblock %}
+    </div>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'book_search.html' %}
+
+{% block book_search_result %}
+
+<h2>Result: </h2>
+
+<div class="result_list">
+  <ol>
+    {% for book in books %}
+      <li>
+        <a href="{{ url_for('book_page', book_id = book.id)}}">
+          <i>"{{ book.title }}"</i> - <b>{{ book.author }}</b> - {{ book.year }} - (ISBN: {{ book.isbn }})
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

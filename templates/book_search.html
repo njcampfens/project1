@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Book Search
+{% endblock %}
+
+
+{% block body %}
+
+<div class="content">
+
+  <div align='center' class="book_form">
+    <h2>Please enter the information of the book you want to search:</h2>
+    <form class="" action="{{ url_for('book_list') }}" method="post">
+
+      <div class="form-group">
+        <input class='form-control' name="search" placeholder='ISBN, Author or Title (or part of it)' required>
+      </div>
+      <div class="form-group">
+        <button style="display:inline-block" class='btn btn-primary'>Search</button>
+      </div>
+    </form>
+    </div>
+
+  {% block book_search_result %}
+  {% endblock %}
+</div>
+
+
+{% endblock %}
