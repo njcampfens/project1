@@ -23,7 +23,7 @@ engine = create_engine(os.getenv("DATABASE_URL"))
 db = scoped_session(sessionmaker(bind=engine))
 
 # we definde the goodreads api API_KEY and URL
-API_KEY = 'AB6ETk9nVNldLj8W1mHOMA'
+API_KEY = {goodreads_api_key}
 GOODREADS_URL = 'https://www.goodreads.com/book/review_counts.json'
 
 def session_login(username):
